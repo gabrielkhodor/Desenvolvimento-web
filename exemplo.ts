@@ -1,60 +1,58 @@
-namespace Condicao
+namespace funcao
 {
-    let vida: number = 100;
-    let ataque: number = 5;
-    let nome: string = "Jubileu";
-    let exp: number = 0;
-    let nivel: number = 1;
-    let status: string = "Vivo";
+    function soma(numero1:number, numero2:number):number{
+        let result: number = numero1 + numero2
+        return result
 
-    console.log(`O ${nome} atacou e ganhou 5xp`);
-    exp = exp + 5 // exp += 5;
-    console.log(`O ${nome} atacou e ganhou 5xp`);
-    exp = exp + 5 // exp += 5;
-    if(exp > 5 && exp < 10){
-        console.log(`O ${nome} subiu de nível!\nFoi para o nível ${nivel += 1}`);
-        vida += 10;
-        ataque += 1;
-        console.log(`************* ${nome} *************\nVida: ${vida}\nAtaque: ${ataque}\n**********************\n `)
-    } else {
-        console.log(`O ${nome} subiu de nível!\nFoi para o nível ${nivel += 2}`);
-        vida += 20;
-        ataque += 2;
-        console.log(`************* ${nome} *************\nVida: ${vida}\nAtaque: ${ataque}\n**********************\n `)
+    }  
+ //console.log(soma(numero1:3,numero2:5));
+ console.log(soma(3,5));
+    function concatenar(texto1:string, texto2 ?:string,separador:string =" "):string{
+        if (texto2){
+            return texto1 + separador + texto2
+        }else{
+            return texto1
+        }
     }
-    vida = 0;
-    status = vida <= 0 ? `O ${nome} morreu` : `O ${nome} está vivo!`;
-    console.log(status);
 
-    let acao: number = Math.floor(Math.random() * 4) + 1;
 
-    switch (acao)
+ let resultado: string = concatenar ("Olá", "Mundo")
+ console.log(resultado);
+ resultado = concatenar("Ola");
+ console.log(resultado);
+resultado = concatenar ("Ola","Gabriel"," - ");
+console.log(resultado);
+
+    function saudacao(nome?:string):string
     {
-        case 1: console.log(`O ${nome} atacou o boss!`);
-                break;
-        case 2: console.log(`O ${nome} defendeu o ataque!`);
-                break;
-        case 3: console.log(`O ${nome} usou uma magia!`);
-                break;
-        default: console.log(`O ${nome} levou dano!`);
+        if (nome){
+            return `olá ${nome}`;
+        }else{
+            return "Olá";
+        }
+    }
+ let res = saudacao("G abriel");
+console.log(res);
+
+    function multiplicar (numero:number, callback: (resultado:number) => void):void {
+        const resultado: number = numero * 2
+        callback(resultado);
+    };
+     multiplicar (4, function(resultado:number){
+        console.log(`o resultado é igual: ${resultado}`)
+    })
+
+    function dividir(numero:number,callback:(resultado:number) => void){
+        const resto: number = numero % 2;
+        callback(resto);
 
     }
-/*
-    let numero = 0
-    let resposta ==   resposta = numero == 10 ? "igual a 10" : "não é igual";
-    
-    resposta = numero % 2 == 0 ? "par" : "impar"
 
-    ex
-*/
+    dividir (10,function(resto:number){
+        console.log(resto === 0 ? "Par": "Impar");
+    })
 
 
 
-    console.log
 
 }
-
-
-
-
-
